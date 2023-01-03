@@ -1,5 +1,5 @@
-function DisplayBoard(board, foo_char, dash_char)
-    local c,d = foo_char or "+", dash_char or "+"
+function DisplayBoard(board, foo_char)
+    local c = foo_char or "+"
 
     local board_size = #board
     io.write("\n")
@@ -43,7 +43,7 @@ local function displayBoardDashedColumn(board, col, c, d)
     local board_size = #board
     if col > board_size or col < 1
     then
-        DisplayBoard(board, c, d)
+        DisplayBoard(board, c)
         return
     end
 
@@ -118,7 +118,7 @@ function HandleDisplayCode(board, row, col, code, foo_char, dash_char)
     local c, d = foo_char, dash_char
     if not code
     then
-        DisplayBoard(board, c, d)
+        DisplayBoard(board, c)
     elseif code == 1
     then
         displayBoardDashedRow(board, row, c, d)
