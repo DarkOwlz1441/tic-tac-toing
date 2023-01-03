@@ -64,3 +64,12 @@ function DisplayBoardDashedColumn(board, column)
         end
     end
 end
+
+for i=1, 5
+do
+    for j=1, 5
+    do
+        io.write((j+i).." ")
+    end
+    print("\n")
+end
