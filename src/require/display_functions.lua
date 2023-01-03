@@ -15,7 +15,7 @@ function DisplayBoard(board)
     end
 end
 
-function DisplayBoardDashedLine(board, line) 
+function DisplayBoardDashedRow(board, row) 
     local board_size = #board
     io.write("\n")
     for i=1, board_size
@@ -24,9 +24,9 @@ function DisplayBoardDashedLine(board, line)
         for j=1, board_size-1
         do
             local curr = board[i][j]
-            if i==line
+            if i==row
             then
-                io.write(curr and curr.."---" or "_---")    
+                io.write(curr and curr.." + " or "_ + ")    
             else
                 io.write(curr and curr.."   " or "_   ")
             end
@@ -37,9 +37,9 @@ function DisplayBoardDashedLine(board, line)
     end
 end
 
-function DisplayBoardDashedColumn(board, column)
+function DisplayBoardDashedColumn(board, col)
     local board_size = #board
-    if column > board_size or column < 1
+    if col > board_size or col < 1
     then
         DisplayBoard()
         return
@@ -60,16 +60,50 @@ function DisplayBoardDashedColumn(board, column)
         then
             io.write("\n\n")
         else 
-            io.write("\n\t"..string.rep("    ",column-1).."|\n")
+            io.write("\n\t"..string.rep("    ",col-1).."+\n")
         end
     end
 end
 
-for i=1, 5
-do
-    for j=1, 5
+function DisplayBoardDashedDiagonal1(board)
+    local board_size = #board
+
+    io.write("\n")
+    for i=1, board_size
     do
-        io.write((j+i).." ")
+        io.write("\t")
+        for j=1, board_size-1
+        do
+            local curr = board[i][j]
+            io.write(curr and curr.."   " or "_   ")
+        end
+        io.write(board[i][board_size] or "_")
+        
+        if i>=board_size
+        then
+            io.write("\n\n")
+        else 
+            io.write("\n\t  "..string.rep("    ",i-1).."+\n")
+        end
     end
-    print("\n")
+end
+
+function DisplayBoardDashedDiagonal2(board)
+    --
+end
+
+function HandleDisplayCode(board, row, col, code)
+    if code == 1
+    then
+        DisplayBoardDashedRow(row)
+    elseif code == 2
+    then
+        DisplayBoardDashedColumn(col)
+    elseif code == 3
+    then
+        DisplayBoardDashedDiagonal1()
+    elseif code == 4
+    then
+        DisplayBoardDashedDiagonal2()
+    end
 end

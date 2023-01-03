@@ -56,7 +56,7 @@ function CheckDiagonals(board, row, col)
         winner = CheckDiagonal1(board)
         if winner
         then
-            return winner
+            return winner, 3
         end
     end
 
@@ -65,8 +65,32 @@ function CheckDiagonals(board, row, col)
         winner = CheckDiagonal2(board)
         if winner
         then
-            return winner
+            return winner, 4
         end
+    end
+
+    return nil
+end
+
+function CheckWinner(board, row, col)
+    local winner
+    winner = CheckRow(board, row)
+    if winner
+    then
+        return winner, 1
+    end
+
+    winner = CheckColumn(board, col)
+    if winner
+    then
+        return winner, 2
+    end
+
+    local c
+    winner, c = CheckDiagonals(board, row, col)
+    if winner
+    then
+        return winner, c
     end
 
     return nil
