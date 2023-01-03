@@ -4,21 +4,36 @@ require("require.utils")
 
 Players = {"player1", "player2"}
 Moves = {"X", "F"}
+Display_chars = {"+", "+"}
 
---Initialize Board
-Board_size = 3;
-Board = {}
-for i=1, Board_size
-do
-    Board[i] = {}
-    -- for j=1, Board_size
-    -- do
-    --     Board[i][j] = 0
-    -- end
+local function initBoard(size, init_val)
+    Board_size = size
+    Board = {}
+
+    for i=1, Board_size
+    do
+        Board[i] = {}
+        if init_val ~= nil
+        then
+            for j=1, Board_size
+            do
+                Board[i][j] = init_val
+            end
+        end
+    end    
 end
 
-local function main()
-    io.write(Players[1].." move: ")
+
+local function configure()
+    
+end
+
+local function game()
+    local c, d, turn = Display_chars[1], Display_chars[2], 1
+
+    io.write("\027[H\027[2J") -- clears the output
+    DisplayBoard(Board, Display_chars[0], Display_chars[1])
+    io.write(Players[turn].." move: ")
     local move = io.read()
 
     while move
@@ -50,22 +65,26 @@ local function main()
             end
         end 
 
-        Board[i][j] = "X"
+        Board[i][j] = Moves[turn]
         local winner, code = CheckWinner(Board, i, j)
         io.write("\027[H\027[2J") -- clears the output
-        
+        HandleDisplayCode(Board, i, j, code, Display_chars[1], Display_chars[2])
+
         if winner
         then
-            HandleDisplayCode(code)
-            print(winner.." WON!")
+            print(Players[turn].." WON!")
             return
         end
-        
-        DisplayBoard(Board)
 
-        
+        turn = turn==1 and turn+1 or turn-1 -- gives the turn to the other player
+
+        io.write(Players[turn].." move: ")
         move = io.read()
     end
 end
 
-main()
+initBoard(3)
+-- configure()
+game()
+
+-- HandleDisplayCode(Board, 3, 2, 2, Display_chars[1], Display_chars[2])

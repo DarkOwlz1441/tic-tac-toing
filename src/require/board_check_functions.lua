@@ -1,4 +1,4 @@
-function CheckRow(board, row)
+local function checkRow(board, row)
     for i=1, #board-1
     do
         local curr = board[row][i]
@@ -10,11 +10,11 @@ function CheckRow(board, row)
     return board[row][1]
 end
 
-function CheckColumn(board, col)
+local function checkColumn(board, col)
     for i=1, #board-1
     do
         local curr = board[i][col]
-        if curr==nil or curr ~= board[i][col]
+        if curr == nil or curr ~= board[i+1][col]
         then
             return nil
         end
@@ -22,7 +22,7 @@ function CheckColumn(board, col)
     return board[1][col]
 end
 
-function CheckDiagonal1(board)
+local function checkDiagonal1(board)
     for i=1, #board-1
     do
         local curr = board[i][i]
@@ -34,9 +34,9 @@ function CheckDiagonal1(board)
     return board[1][1]
 end
 
-function CheckDiagonal2(board)
+local function checkDiagonal2(board)
     local board_size = #board
-    local j1, j2 = 1, 5
+    local j1, j2 = 1, board_size
         for i=1, board_size-1
         do
             local curr = board[j1][j2]
@@ -49,11 +49,11 @@ function CheckDiagonal2(board)
         return board[1][board_size]
 end
 
-function CheckDiagonals(board, row, col)
+local function checkDiagonals(board, row, col)
     local winner
     if row == col
     then
-        winner = CheckDiagonal1(board)
+        winner = checkDiagonal1(board)
         if winner
         then
             return winner, 3
@@ -62,7 +62,7 @@ function CheckDiagonals(board, row, col)
 
     if row+col == #board+1
     then
-        winner = CheckDiagonal2(board)
+        winner = checkDiagonal2(board)
         if winner
         then
             return winner, 4
@@ -74,20 +74,20 @@ end
 
 function CheckWinner(board, row, col)
     local winner
-    winner = CheckRow(board, row)
+    winner = checkRow(board, row)
     if winner
     then
         return winner, 1
     end
 
-    winner = CheckColumn(board, col)
+    winner = checkColumn(board, col)
     if winner
     then
         return winner, 2
     end
 
     local c
-    winner, c = CheckDiagonals(board, row, col)
+    winner, c = checkDiagonals(board, row, col)
     if winner
     then
         return winner, c
