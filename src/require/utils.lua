@@ -17,7 +17,7 @@ function StrSplit(str, splitter)
     local i1,i2 = string.find(str, splitter)
     if not i1
     then
-        return str, ""
+        return str, nil
     end
 
     local str1, str2 = {}, {}
@@ -36,7 +36,8 @@ function StrSplit(str, splitter)
 end
 
 function IsNumericString(str)
-    if string.match(str, "%d") and not string.match(str, "%D")
+
+    if string and string.match(str, "%d") and not string.match(str, "%D")
     then
         return true
     end
