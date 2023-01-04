@@ -1,3 +1,12 @@
+function DisplayCoolLogo()
+    print("     ⢀⣀⣀⣀⣀⣀       ⣀⣀⣀⣀⣀⡀        ⣀⣀⣀⣀⣀⡀")
+    print("     ⠛⠛⢻⣿⠛⠛⣃⡀ ⣀⣀⡀⠘⠛⠛⣿⡟⠛⢛⣀⣀  ⣀⣀⡀⠘⠛⠛⣿⡟⠛⠛⣀⣀⡀⢀⣀ ⢀⣀⣀ ⢀⣀⡀")
+    print("       ⢸⣿  ⢛⡁⢸⣿⠛⠃   ⣿  ⢨⣭⣿⡇⢸⣿⠛⠃   ⣿⡇ ⢸⡏⢹⡇⠘⣋ ⣿⠛⣿ ⣿⠛⣿")
+    print("       ⢸⣿  ⣿⡇⢸⣿⣶⡆   ⣿  ⢸⣧⣼⣇⢸⣿⣶⡆   ⣿⡇ ⢸⣧⣼⠇⢸⣿ ⣿ ⣿ ⠿⠶⣿")
+    print("                                                ⠲⠶⠟")
+    print("\n")
+end
+
 function DisplayBoard(board, foo_char)
     local c = foo_char or "+"
 

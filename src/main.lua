@@ -20,9 +20,28 @@ local function initBoard(size, init_val)
 end
 
 local function configure()
+    for i=1, #arg
+    do
+        local a = arg[i]
+        if StrPos(a, 1) == "-"
+        then
+            if StrPos(a, 1) == "-"
+            then
+                -- long argument
+
+            else
+                -- short argument
+
+            end
+        else
+            print("invalid option "..a)
+        end
+    end
+
     Players = {"player1", "player2"}
-    Moves = {"X", "F"}
+    Moves = {"7", "~"}
     Display_chars = {"@", "+"}
+
 end
 
 local function game()
@@ -80,7 +99,6 @@ local function game()
         end
 
         io.write("\027[H\027[2J") -- clears the output
-        print(winner, code)
         HandleDisplayCode(Board, i, j, code, c, d)
         if winner
         then
@@ -98,6 +116,18 @@ local function game()
     end
 end
 
-initBoard(3)
+
+
 configure()
-game()
+
+DisplayCoolLogo()
+print("                   press ENTER to start")
+print("                      (EOF to quit)")
+while io.read()
+do
+    initBoard(3)
+    game()
+    print("                       play again?")
+    print("                   press ENTER to start")
+    print("                      (EOF to quit)")
+end
