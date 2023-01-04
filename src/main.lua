@@ -3,15 +3,14 @@ require("require.display_functions")
 require("require.utils")
 
 local function initBoard(size, init_val)
-    Board_size = size
     Board = {}
 
-    for i=1, Board_size
+    for i=1, size
     do
         Board[i] = {}
         if init_val ~= nil
         then
-            for j=1, Board_size
+            for j=1, size
             do
                 Board[i][j] = init_val
             end
@@ -20,9 +19,94 @@ local function initBoard(size, init_val)
 end
 
 local function configure()
+
     Players = {"player1", "player2"}
-    Moves = {"X", "F"}
-    Display_chars = {"@", "+"}
+    Moves = {"X", "O"}
+    Display_chars = {"#", "+"}
+    Board = {}
+    Board_size = 3
+
+
+    for i=1, #arg
+    do
+        local a = arg[i]
+
+        if a[1] ~= "-"
+        then
+            print("invalid option "..a..". Enter --help or -h to show help")
+        end
+        
+        if a == "-h" or a == "--help"
+        then
+            DisplayHelp()
+            return nil
+        else
+            local a1, a2 = StrSplit(a, "=")
+
+            if not a2
+            then
+                print("usage: "..a1.."=something")
+                return nil
+            end
+
+            if a1 == "-p1" or a1 == "--player1"
+            then
+                Players[1] = a2
+            elseif  a1 == "-p2" or a1 == "--player2"
+            then
+                Players[2] = a2                
+            elseif a1 == '-cp1' or a1 == "--charplayer1"
+            then
+                if #a2 == 1
+                then
+                    Moves[1] = a2
+                else
+                    print("player move should be a single character. ex: "..a1.."=X")
+                    return nil
+                end
+            elseif a1 == '-cp2' or a1 == "--charplayer2"
+            then
+                if #a2 == 1
+                then
+                    Moves[2] = a2
+                else
+                    print("player move should be a single character. ex: "..a1.."=O")
+                    return nil
+                end
+            elseif a1 == "-c" or a1 == "--displaychar"
+            then
+                if #a2 == 1
+                then
+                    Display_chars[1] = a2
+                else
+                    print("display character should be a single character. ex: "..a1.."=#")
+                    return nil
+                end
+            elseif a1 == "d" or a1 == "--dashchar"
+            then
+                if #a2 == 1
+                then
+                    Display_chars[2] = a2
+                else
+                    print("winning dash character should be a single character. ex: "..a1.."=+")
+                    return nil
+                end
+            elseif a1 == "-s" or a1 == "--sizeofboard"
+            then
+                if IsNumericString(a2) then
+                    Board_size = tonumber(a2)
+                else
+                    print("Board size should be a number. ex: "..a1.."=3")
+                    return nil
+                end
+            else
+                print("invalid option "..a..". enter --help or -h to show help")
+                return nil
+            end
+        end
+    end
+
+    return true
 end
 
 local function game()
@@ -80,7 +164,6 @@ local function game()
         end
 
         io.write("\027[H\027[2J") -- clears the output
-        print(winner, code)
         HandleDisplayCode(Board, i, j, code, c, d)
         if winner
         then
@@ -98,6 +181,19 @@ local function game()
     end
 end
 
-initBoard(3)
-configure()
-game()
+if not configure()
+then
+    return
+end
+
+DisplayCoolLogo()
+print("                   press ENTER to start")
+print("                      (EOF to quit)")
+while io.read()
+do
+    initBoard(Board_size)
+    game()
+    print("                       play again?")
+    print("                   press ENTER to start")
+    print("                      (EOF to quit)")
+end

@@ -1,3 +1,17 @@
+function DisplayHelp()
+    print("HELP! HEEEEELP! HEEEEEEEEY! IS ANYONE THERE?!? SOMEONE! ANYONE! PLEASE! DO SOMETHING!")
+    --TODO: ACTUAL code for displaying help
+end
+
+function DisplayCoolLogo()
+    print("     ⢀⣀⣀⣀⣀⣀       ⣀⣀⣀⣀⣀⡀        ⣀⣀⣀⣀⣀⡀")
+    print("     ⠛⠛⢻⣿⠛⠛⣃⡀ ⣀⣀⡀⠘⠛⠛⣿⡟⠛⢛⣀⣀  ⣀⣀⡀⠘⠛⠛⣿⡟⠛⠛⣀⣀⡀⢀⣀ ⢀⣀⣀ ⢀⣀⡀")
+    print("       ⢸⣿  ⢛⡁⢸⣿⠛⠃   ⣿  ⢨⣭⣿⡇⢸⣿⠛⠃   ⣿⡇ ⢸⡏⢹⡇⠘⣋ ⣿⠛⣿ ⣿⠛⣿")
+    print("       ⢸⣿  ⣿⡇⢸⣿⣶⡆   ⣿  ⢸⣧⣼⣇⢸⣿⣶⡆   ⣿⡇ ⢸⣧⣼⠇⢸⣿ ⣿ ⣿ ⠿⠶⣿")
+    print("                                                ⠲⠶⠟")
+    print("\n")
+end
+
 function DisplayBoard(board, foo_char)
     local c = foo_char or "+"
 
