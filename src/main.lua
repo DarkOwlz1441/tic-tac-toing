@@ -3,15 +3,14 @@ require("require.display_functions")
 require("require.utils")
 
 local function initBoard(size, init_val)
-    Board_size = size
     Board = {}
 
-    for i=1, Board_size
+    for i=1, size
     do
         Board[i] = {}
         if init_val ~= nil
         then
-            for j=1, Board_size
+            for j=1, size
             do
                 Board[i][j] = init_val
             end
@@ -24,6 +23,9 @@ local function configure()
     Players = {"player1", "player2"}
     Moves = {"X", "O"}
     Display_chars = {"#", "+"}
+    Board = {}
+    Board_size = 3
+
 
     for i=1, #arg
     do
@@ -87,6 +89,14 @@ local function configure()
                     Display_chars[2] = a2
                 else
                     print("winning dash character should be a single character. ex: "..a1.."=+")
+                    return nil
+                end
+            elseif a1 == "-s" or a1 == "--sizeofboard"
+            then
+                if IsNumericString(a2) then
+                    Board_size = tonumber(a2)
+                else
+                    print("Board size should be a number. ex: "..a1.."=3")
                     return nil
                 end
             else
@@ -181,7 +191,7 @@ print("                   press ENTER to start")
 print("                      (EOF to quit)")
 while io.read()
 do
-    initBoard(5)
+    initBoard(Board_size)
     game()
     print("                       play again?")
     print("                   press ENTER to start")
