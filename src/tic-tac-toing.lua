@@ -82,7 +82,7 @@ local function configure()
                     print("display character should be a single character. ex: "..a1.."=#")
                     return nil
                 end
-            elseif a1 == "d" or a1 == "--dashchar"
+            elseif a1 == "-d" or a1 == "--dashchar"
             then
                 if #a2 == 1
                 then
@@ -112,7 +112,7 @@ end
 local function game()
     local c, d, turn, n_moves = Display_chars[1], Display_chars[2], 1, 0
 
-    io.write("\027[H\027[2J") -- clears the output
+    os.execute("clear") -- clears the output
     DisplayBoard(Board, c)
     
     while true
@@ -163,7 +163,7 @@ local function game()
             winner, code = CheckWinner(Board, i, j)
         end
 
-        io.write("\027[H\027[2J") -- clears the output
+        os.execute("clear") -- clears the output
         HandleDisplayCode(Board, i, j, code, c, d)
         if winner
         then

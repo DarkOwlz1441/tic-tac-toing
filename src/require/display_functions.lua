@@ -1,15 +1,49 @@
 function DisplayHelp()
-    print("HELP! HEEEEELP! HEEEEEEEEY! IS ANYONE THERE?!? SOMEONE! ANYONE! PLEASE! DO SOMETHING!")
-    --TODO: ACTUAL code for displaying help
+local str = [[
+USAGE: lua tic-tac-toing.out [-p1=<name> | --player1=<name>]")
+                             [-p2=<name> | --player2=<name>]")
+                             [-cp1=<character> | --charplayer1=<character>]")
+                             [-cp2=<character> | --charplayer2=<character>]")
+                             [-c=<character> | --displaychar=<character>]")
+                             [-d=<character> | --dashchar=<character>]")
+                             [-s=<number> | --sizeofboard=<number>]")
+                             [-h | --help]")
+
+COMMAND LINE OPTIONS:
+       -p1, --player1
+Set the player 1 name in the game. DEFAULT: player1
+
+       -p1, --player1
+Set the player 2 name in the game. DEFAULT: player2
+
+       -cp1, --charplayer1
+Set the player 1's playing character. DEFAULT: X
+
+       -cp2, --charplayer2
+Set the player 2's playing character. DEFAULT: O
+
+       -c, --displaychar
+Set character used to represent empty positions in the board. DEFAULT: #
+
+       -c, --dashchar
+Set character used to represent the line that is formed in the board when someone wins. DEFAULT: +
+
+       -s, --sizeofboard
+Set the size of the tic tac toe board. For instance, if 3 then the board will be 3x3 sized. DEFAULT: 3
+    ]]
+
+    print(str)
 end
 
 function DisplayCoolLogo()
-    print("     ⢀⣀⣀⣀⣀⣀       ⣀⣀⣀⣀⣀⡀        ⣀⣀⣀⣀⣀⡀")
-    print("     ⠛⠛⢻⣿⠛⠛⣃⡀ ⣀⣀⡀⠘⠛⠛⣿⡟⠛⢛⣀⣀  ⣀⣀⡀⠘⠛⠛⣿⡟⠛⠛⣀⣀⡀⢀⣀ ⢀⣀⣀ ⢀⣀⡀")
-    print("       ⢸⣿  ⢛⡁⢸⣿⠛⠃   ⣿  ⢨⣭⣿⡇⢸⣿⠛⠃   ⣿⡇ ⢸⡏⢹⡇⠘⣋ ⣿⠛⣿ ⣿⠛⣿")
-    print("       ⢸⣿  ⣿⡇⢸⣿⣶⡆   ⣿  ⢸⣧⣼⣇⢸⣿⣶⡆   ⣿⡇ ⢸⣧⣼⠇⢸⣿ ⣿ ⣿ ⠿⠶⣿")
-    print("                                                ⠲⠶⠟")
-    print("\n")
+    local str = [[
+     ⢀⣀⣀⣀⣀⣀       ⣀⣀⣀⣀⣀⡀        ⣀⣀⣀⣀⣀⡀
+     ⠛⠛⢻⣿⠛⠛⣃⡀ ⣀⣀⡀⠘⠛⠛⣿⡟⠛⢛⣀⣀  ⣀⣀⡀⠘⠛⠛⣿⡟⠛⠛⣀⣀⡀⢀⣀ ⢀⣀⣀ ⢀⣀⡀
+       ⢸⣿  ⢛⡁⢸⣿⠛⠃   ⣿⡇ ⢨⣭⣿⡇⢸⣿⠛⠃   ⣿⡇ ⢸⡏⢹⡇⠘⣋ ⣿⠛⣿ ⣿⠛⣿
+       ⢸⣿  ⣿⡇⢸⣿⣶⡆   ⣿⡇ ⢸⣧⣼⣇⢸⣿⣶⡆   ⣿⡇ ⢸⣧⣼⠇⢸⣿ ⣿ ⣿ ⠿⠶⣿
+                                                ⠲⠶⠟
+    ]]
+    print(str)
 end
 
 function DisplayBoard(board, foo_char)
