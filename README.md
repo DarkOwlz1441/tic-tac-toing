@@ -2,6 +2,10 @@
 
 A tic-tac-toe command-line game, written in Lua scripting language.
 
+## Note for Windows users
+
+There's an alternate branch to this one with an actually runnable project in Windows environment.
+
 ## Running the game
 
 There's a binary in bin folder. It contains a binary file that contains the game. You can only execute it if the Lua interpreter is installed.
@@ -33,3 +37,5 @@ The same rules from the regular tic-tac-toe game, there's not much to explain.
 - Originally, I was intending to develop an AI for another game mode against the computer, but I gave up given the time.
 - My 9-years-old sister helped me test the game. She liked to play as the 'Seven'.
 - ~~My dad is a complete jerk.~~
+- The main version of this project and Windows one have literally 2 lines of difference. It's just that in one I use os.execute("clear") to clear the screen and in the other I use os.execute("cls"), because the operating system facilities to clear the screen in Windows and Unix-like systems have different names. That makes the original project 4 characters = 4 bytes larger than the Windows one. I think I was just too lazy to build a solution that was compatible with both systems.
+- I can play like 3 instruments.
