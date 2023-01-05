@@ -8,7 +8,7 @@ There's an alternate branch to this one with an actually runnable project in Win
 
 ## Running the game
 
-There's a binary in bin folder. It contains a binary file that contains the game. You can only execute it if the Lua interpreter is installed.
+There's a **tic-tac-toe.lua** file in src folder. You can only execute it if the Lua interpreter is installed.
 
 Execute it by running the following command, **while staying in the src directory**:
 
@@ -32,7 +32,7 @@ The same rules from the regular tic-tac-toe game, there's not much to explain.
   - This was the first of some programming challenges two friends of mine organized. The challenge was developing a tic-tac-toe game in 48 hours.
 - I made this project in less than 3 days.
 - In an earlier version of this project, the -h flag, instead of showing actually helpful information, showed the message "HELP! HEEEEELP! HEEEEEEEEY! IS ANYONE THERE?!? SOMEONE! ANYONE! PLEASE! DO SOMETHING!"
-- The name tic-tac-toing is a reference to Ratatoing, an awful mockbuster movie of Ratattouile, developed by Video Brinquedo animation studios.
+- The name tic-tac-toing is a reference to Ratatoing, an awful mockbuster movie of Pixar's Ratatouille, developed by Video Brinquedo animation studios.
 - The "fancy logo" showed when you run this project does not use any existent fonts. I actually drew this logo manually using [a braille art generator website](braille-txt.github.io/).
 - Originally, I was intending to develop an AI for another game mode against the computer, but I gave up given the time.
 - My 9-years-old sister helped me test the game. She liked to play as the 'Seven'.
