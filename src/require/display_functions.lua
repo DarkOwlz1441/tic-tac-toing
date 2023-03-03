@@ -1,13 +1,13 @@
 function DisplayHelp()
 local str = [[
-USAGE: lua tic-tac-toing.out [-p1=<name> | --player1=<name>]")
-                             [-p2=<name> | --player2=<name>]")
-                             [-cp1=<character> | --charplayer1=<character>]")
-                             [-cp2=<character> | --charplayer2=<character>]")
-                             [-c=<character> | --displaychar=<character>]")
-                             [-d=<character> | --dashchar=<character>]")
-                             [-s=<number> | --sizeofboard=<number>]")
-                             [-h | --help]")
+USAGE: lua tic-tac-toing.out [-p1=<name> | --player1=<name>]
+                             [-p2=<name> | --player2=<name>]
+                             [-cp1=<character> | --charplayer1=<character>]
+                             [-cp2=<character> | --charplayer2=<character>]
+                             [-c=<character> | --displaychar=<character>]
+                             [-d=<character> | --dashchar=<character>]
+                             [-s=<number> | --sizeofboard=<number>]
+                             [-h | --help]
 
 COMMAND LINE OPTIONS:
        -p1, --player1
@@ -37,11 +37,11 @@ end
 
 function DisplayCoolLogo()
     local str = [[
-     ⢀⣀⣀⣀⣀⣀       ⣀⣀⣀⣀⣀⡀        ⣀⣀⣀⣀⣀⡀
-     ⠛⠛⢻⣿⠛⠛⣃⡀ ⣀⣀⡀⠘⠛⠛⣿⡟⠛⢛⣀⣀  ⣀⣀⡀⠘⠛⠛⣿⡟⠛⠛⣀⣀⡀⢀⣀ ⢀⣀⣀ ⢀⣀⡀
-       ⢸⣿  ⢛⡁⢸⣿⠛⠃   ⣿⡇ ⢨⣭⣿⡇⢸⣿⠛⠃   ⣿⡇ ⢸⡏⢹⡇⠘⣋ ⣿⠛⣿ ⣿⠛⣿
-       ⢸⣿  ⣿⡇⢸⣿⣶⡆   ⣿⡇ ⢸⣧⣼⣇⢸⣿⣶⡆   ⣿⡇ ⢸⣧⣼⠇⢸⣿ ⣿ ⣿ ⠿⠶⣿
-                                                ⠲⠶⠟
+     ⢀⣀⣀⣀⣀⣀       ⣀⣀⣀⣀⣀⡀        ⣀⣀⣀⣀⣀⡀
+     ⠛⠛⢻⣿⠛⠛⣃⡀ ⣀⣀⡀⠘⠛⠛⣿⡟⠛⢛⣀⣀  ⣀⣀⡀⠘⠛⠛⣿⡟⠛⠛⣀⣀⡀⢀⣀ ⢀⣀⣀ ⢀⣀⡀
+       ⢸⣿  ⢛⡁⢸⣿⠛⠃   ⣿⡇ ⢨⣭⣿⡇⢸⣿⠛⠃   ⣿⡇ ⢸⡏⢹⡇⠘⣋ ⣿⠛⣿ ⣿⠛⣿
+       ⢸⣿  ⣿⡇⢸⣿⣶⡆   ⣿⡇ ⢸⣧⣼⣇⢸⣿⣶⡆   ⣿⡇ ⢸⣧⣼⠇⢸⣿ ⣿ ⣿ ⠿⠶⣿
+                                                ⠲⠶⠟
     ]]
     print(str)
 end

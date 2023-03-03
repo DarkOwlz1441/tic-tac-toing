@@ -43,3 +43,11 @@ function IsNumericString(str)
     end
     return false
 end
+
+function IsWindowsEnvironment()
+    if package.config:sub(1,1) ~= '/'    
+    then
+        return true
+    end
+    return false
+end

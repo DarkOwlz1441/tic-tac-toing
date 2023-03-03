@@ -2,6 +2,13 @@ require("require.board_check_functions")
 require("require.display_functions")
 require("require.utils")
 
+Clear_screen_facility = "clear"
+
+if IsWindowsEnvironment()
+then
+    Clear_screen_facility = "cls"
+end
+
 local function initBoard(size, init_val)
     Board = {}
 
@@ -31,9 +38,10 @@ local function configure()
     do
         local a = arg[i]
 
-        if a[1] ~= "-"
+        if a:sub(1,1) ~= "-"
         then
             print("invalid option "..a..". Enter --help or -h to show help")
+            return nil
         end
         
         if a == "-h" or a == "--help"
@@ -163,7 +171,7 @@ local function game()
             winner, code = CheckWinner(Board, i, j)
         end
 
-        os.execute("clear") -- clears the output
+        os.execute(Clear_screen_facility) -- clears the output
         HandleDisplayCode(Board, i, j, code, c, d)
         if winner
         then
